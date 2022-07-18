@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { v4 } from 'uuid';
+import { Marker } from 'mapbox-gl';
 
-const useMapbox = ( initialState ) => {
+const useMapbox = ( initialState) => {
     
     mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jpc3R3IiwiYSI6ImNsNW9sYWJhMzBoOGUzYnBxM3A4OHRrYjUifQ.Dsr--WXWPwsAnzRxz1U9lA';
     
@@ -35,6 +37,23 @@ const useMapbox = ( initialState ) => {
         })
         
     }, [])
+
+    useEffect(() => {
+
+        mapRef.current?.on('click', (e) => {
+            const { lng, lat } = e.lngLat;
+            const marker = new Marker()
+            marker.id = v4()
+            marker.setLngLat([ lng, lat ])
+            .addTo( mapRef.current )
+            .setDraggable( true )
+            
+        })
+
+      
+    }, [])
+    
+
 
 
     return {
