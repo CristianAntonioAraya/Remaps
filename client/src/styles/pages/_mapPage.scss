@@ -1,0 +1,20 @@
+.map__container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.map__info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    margin: 1rem;
+    border-radius: 10px;
+}

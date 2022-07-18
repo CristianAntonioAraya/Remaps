@@ -1,7 +1,12 @@
+import React from 'react'
+import MapPage from './pages/MapPage'
 
 const App = () => {
   return (
-    <div>Rempas</div>
+    <div>
+      <MapPage/>
+
+    </div>
   )
 }
 
